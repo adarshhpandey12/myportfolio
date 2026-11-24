@@ -224,7 +224,23 @@
     .project { position: relative; display: grid; overflow: hidden; }
     .project:hover { border-color: rgba(59,130,246,.4); box-shadow: var(--shadow-glow); }
     .project::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 1px; background: linear-gradient(90deg, var(--accent-a), transparent); z-index: 1; }
-    .p-visual { padding: 16px; background: var(--bg-deep); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; }
+   
+.p-visual {
+    padding: 20px;
+    background: var(--bg-deep);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+}
+
+@media (min-width: 640px) {
+    .p-visual {
+        padding: 24px;
+    }
+}
+
     .p-visual .vis { transition: transform .5s; }
     .project:hover .vis { transform: scale(1.02); }
     .p-visual svg { width: 100%; height: auto; border-radius: 6px; }
@@ -359,39 +375,56 @@
       .js .reveal { transform: none; }
     }
     
-    .hostel-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 12px;
-}
-
-.hostel-gallery img {
+    
+.hostel-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid #26334a;
-  transition: transform 0.3s ease;
 }
 
-.hostel-gallery img:hover {
-  transform: scale(1.03);
+.hostel-main-image img {
+  width: 100%;
+  height: 270px;
+  object-fit: contain;
+  display: block;
+  background: #080d19;
+  border: 1px solid #26334a;
+  border-radius: 12px;
+}
+
+.hostel-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hostel-thumbnails img {
+  width: 100%;
+  height: 105px;
+  object-fit: contain;
+  background: #080d19;
+  border: 1px solid #26334a;
+  border-radius: 9px;
+  transition: transform .3s ease;
+}
+
+.hostel-thumbnails img:hover {
+  transform: translateY(-4px);
 }
 
 @media (max-width: 600px) {
-  .hostel-gallery img {
-    height: 110px;
+  .hostel-main-image img {
+    height: 220px;
+  }
+
+  .hostel-thumbnails img {
+    height: 85px;
   }
 }
 
-.profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: inherit;
-}
+
+
   </style>
 </head>
 
@@ -579,12 +612,27 @@
           <div class="reveal">
             <article class="card project" aria-labelledby="p-hostel" style="--accent-a: var(--blue)">
               <div class="p-visual">
-  <div class="hostel-gallery">
-    <img src="assets/images/hostel/dashboard.png" alt="Hostel Dashboard">
-    <img src="assets/images/hostel/submit-complaint.png" alt="Complaint Submission">
-    <img src="assets/images/hostel/complaint-status.png" alt="Complaint Status">
-    <img src="assets/images/hostel/admin-dashboard.png" alt="Admin Dashboard">
+ 
+<div class="hostel-gallery">
+
+  <div class="hostel-main-image">
+    <img src="assets/images/hostel/dashboard.png"
+         alt="Hostel Management Dashboard">
   </div>
+
+  <div class="hostel-thumbnails">
+    <img src="assets/images/hostel/submit-complaint.png"
+         alt="Complaint Submission">
+
+    <img src="assets/images/hostel/complaint-status.png"
+         alt="Complaint Status">
+
+    <img src="assets/images/hostel/admin-dashboard.png"
+         alt="Admin Dashboard">
+  </div>
+
+</div>
+
   <p class="p-caption">Project Screenshots</p>
 </div>
               <div class="p-body">
