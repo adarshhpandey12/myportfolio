@@ -661,7 +661,13 @@
   }
 }
 
-
+.project-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
   </style>
 </head>
 
@@ -986,7 +992,14 @@
           <!-- Project 03 -->
           <div class="reveal">
             <article class="card project" aria-labelledby="p-jarvis" style="--accent-a: var(--cyan)">
-              <div class="p-visual"><div class="vis" data-visual="jarvis"></div><p class="p-caption">Illustrative preview</p></div>
+              <div class="p-visual">
+    <img
+        src="assets/images/jarvis.png"
+        alt="JARVIS Personal AI Assistant"
+        class="project-image"
+    >
+    <p class="p-caption">Concept Preview</p>
+</div>
               <div class="p-body">
                 <div class="p-meta"><span class="p-num">03</span><span class="p-cat">Personal AI Assistant / Automation</span><span class="status">Currently In Progress</span></div>
                 <h3 id="p-jarvis">Personal JARVIS Assistant</h3>
