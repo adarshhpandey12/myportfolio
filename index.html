@@ -610,6 +610,56 @@
   flex-wrap: wrap;
   gap: 9px;
 }
+/* ScamShield AI Gallery */
+
+.scam-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.scam-main-image img {
+  width: 100%;
+  height: 270px;
+  object-fit: contain;
+  background: #080d19;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: zoom-in;
+}
+
+.scam-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.scam-thumbnails img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.scam-thumbnails img:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+}
+
+@media(max-width:600px) {
+  .scam-main-image img {
+    height: 220px;
+  }
+
+  .scam-thumbnails img {
+    height: 65px;
+  }
+}
 
 
   </style>
@@ -885,7 +935,34 @@
           <!-- Project 02 -->
           <div class="reveal">
             <article class="card project rev" aria-labelledby="p-scam" style="--accent-a: var(--cyan)">
-              <div class="p-visual"><div class="vis" data-visual="scam"></div><p class="p-caption">Illustrative preview</p></div>
+              <div class="p-visual">
+  <div class="scam-gallery">
+
+    <div class="scam-main-image">
+      <img id="scamMainImage"
+           src="assets/images/scamshield/dashboard.png"
+           alt="ScamShield AI Dashboard">
+    </div>
+
+    <div class="scam-thumbnails">
+
+      <img src="assets/images/scamshield/dashboard.png"
+           onclick="changeScamImage(this)"
+           alt="Dashboard">
+
+      <img src="assets/images/scamshield/login.png"
+           onclick="changeScamImage(this)"
+           alt="Login Page">
+
+      <img src="assets/images/scamshield/signup.png"
+           onclick="changeScamImage(this)"
+           alt="Sign Up Page">
+
+    </div>
+  </div>
+
+  <p class="p-caption">ScamShield AI — Application Screenshots</p>
+</div>
               <div class="p-body">
                 <div class="p-meta"><span class="p-num">02</span><span class="p-cat">AI-Based Security Project</span></div>
                 <h3 id="p-scam">Scam Shield AI</h3>
