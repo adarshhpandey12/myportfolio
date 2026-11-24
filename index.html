@@ -134,6 +134,57 @@
     .hero h1 { margin-top: 24px; color: #fff; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; font-size: clamp(2.25rem, 6vw, 3.75rem); }
     .hero-role { margin-top: 16px; color: #e2e8f0; font-weight: 500; font-size: clamp(1rem, 2vw, 1.125rem); }
     .hero-headline { margin-top: 24px; color: #fff; font-weight: 600; font-size: clamp(1.25rem, 3vw, 1.5rem); }
+
+/* Animated Hero Role */
+.hero-role {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.role-slider {
+  display: inline-block;
+  height: 1.5em;
+  overflow: hidden;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.role-slider span {
+  display: block;
+  height: 1.5em;
+  line-height: 1.5em;
+  background: linear-gradient(90deg, #f83845, #818cf8, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: roleSlide 5s infinite;
+}
+
+.role-fixed {
+  flex-shrink: 0;
+}
+
+@keyframes roleSlide {
+  0%, 20% {
+    transform: translateY(0);
+  }
+  25%, 45% {
+    transform: translateY(-1.5em);
+  }
+  50%, 70% {
+    transform: translateY(-3em);
+  }
+  75%, 95% {
+    transform: translateY(-4.5em);
+  }
+  100% {
+    transform: translateY(-6em);
+  }
+}
+
     .hero-intro { margin-top: 16px; max-width: 36rem; color: var(--muted); }
     .typed { margin-top: 20px; font-family: var(--mono); font-size: 14px; color: var(--muted); min-height: 1.6em; }
     .typed span { color: var(--cyan); }
@@ -481,7 +532,15 @@
         <div>
           <p class="chip">B.Tech CSE · 2nd Year</p>
           <h1 id="hero-title">Hi, I'm <span class="grad-text">Adarsh Pandey</span></h1>
-          <p class="hero-role">MERN Stack Developer | CSE Student | Tech Enthusiast</p>
+          <p class="hero-role">
+  <span class="role-slider">
+    <span>MERN Stack Developer</span>
+    <span>Aspiring AI Engineer</span>
+    <span>Aspiring Data Scientist</span>
+    <span>Tech Enthusiast</span>
+  </span>
+  <span class="role-fixed"> | CSE Student</span>
+</p>
           <p class="hero-headline">Building Digital Experiences Through Code.</p>
           <p class="hero-intro">Second-year Computer Science student who builds practical web and AI-based projects with the MERN stack, C, Python and Java, and enjoys solving real-world problems with technology.</p>
           <div class="hero-btns">
